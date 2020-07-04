@@ -1,0 +1,11 @@
+.cover {
+  object-fit: cover;
+  width: 100%;
+  height: 200px;
+}
+
+.breadcrumb > li + li:before {
+    color: #78C2AD;
+    content: "/ ";
+    padding: 0 5px;
+}

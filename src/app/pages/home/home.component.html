@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb my-2 bg-light">
+                    <li class="breadcrumb-item"><a class="text-primary">Página Principal</a></li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <h5>Empleos</h5>
+        </div>
+        <div *ngFor="let i of empleos" class="col-12 col-md-6 col-lg-4">
+            <div class="card my-2 shadow-sm">
+                <img src="{{i.imagen}}" class="card-img-top" class="cover">
+                <div class="card-body">
+                    <h5 class="card-title">{{i.titulo}}</h5>
+                    <p class="card-text">{{i.descripcion}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
