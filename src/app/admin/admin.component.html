@@ -1,0 +1,19 @@
+<app-nav></app-nav>
+<div class="container-fluid">
+    <div class="row h">
+        <div class="col-12 col-lg-2 bg-primary h p-0">
+            <ul class="list-group list-group-flush" id="sidebar">
+                <a routerLink="/admin/publicaciones" class="list-group-item bg-primary"><i class="fas fa-copy mr-2"></i>Publicaciones</a>
+                <a routerLink="/admin/sitios" class="list-group-item  bg-primary"><i class="fas fa-globe mr-2"></i>Sitios</a>
+                <a routerLink="/admin/cargar-cv" class="list-group-item  bg-primary"><i class="fas fa-edit mr-2"></i>Carga de CVs</a>
+            </ul>
+        </div>
+        <div class="col-12 col-lg-8">
+            <div class="row">
+                <div class="col-12">
+                    <router-outlet></router-outlet>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
