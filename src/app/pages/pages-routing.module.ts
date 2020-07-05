@@ -4,6 +4,7 @@ import { PagesComponent } from './pages.component';
 import { HomeComponent } from './home/home.component';
 import { SitiosComponent } from './sitios/sitios.component';
 import { CargarCvComponent } from './cargar-cv/cargar-cv.component';
+import { VerEmpleoComponent } from './ver-empleo/ver-empleo.component';
 
 
 const routes: Routes = [
@@ -13,12 +14,19 @@ const routes: Routes = [
     children: [
       {
         path: "",
-        redirectTo: "home",
+        redirectTo: "empleos",
         pathMatch: "full"
       },
       {
-        path: "home",
+        path: "empleos",
         component: HomeComponent,
+        data: {
+          index: 0
+        }
+      },
+      {
+        path: "empleos/:id",
+        component: VerEmpleoComponent,
         data: {
           index: 0
         }

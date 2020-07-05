@@ -12,11 +12,13 @@ export class SitiosComponent implements OnInit {
   constructor(private apiSitio: SitiosService) { }
 
   sitios: Sitio[] = [];
+  loading = false;
   ngOnInit(): void {
     this.getSitios();
   }
 
   getSitios(){
+    this.loading = true;
     this.apiSitio.getSitios().subscribe(
       data => {
         for(let i=0; i<data.length;i++){
@@ -24,6 +26,7 @@ export class SitiosComponent implements OnInit {
           e.id = data[i].payload.doc.id;
           this.sitios.push(e);
         }
+        this.loading = false;
       }
     )
   }

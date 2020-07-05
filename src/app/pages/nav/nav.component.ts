@@ -31,7 +31,11 @@ export class NavComponent implements OnInit {
       filter(event => event instanceof NavigationEnd)
     ).subscribe(event => {
       this.items[this.current].active = false;
-      this.current = this.paths[event["url"]];
+      if(typeof this.paths[event["url"]] !== 'undefined'){
+        this.current = this.paths[event["url"]];
+      }else{
+        this.current = 0;
+      }
       this.items[this.current].active = true;
     });
   }
