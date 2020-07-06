@@ -9,6 +9,10 @@ export class SitiosService {
   constructor(private firestore: AngularFirestore) { }
 
   getSitios() {
-    return this.firestore.collection('sitios').snapshotChanges();
+    return this.firestore.collection(
+      'sitios',
+      ref => ref
+        .orderBy('nombre', 'asc')
+    ).snapshotChanges();
   }
 }

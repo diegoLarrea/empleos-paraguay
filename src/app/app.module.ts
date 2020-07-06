@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { PagesModule } from './pages/pages.module';
 import { AdminModule } from './admin/admin.module';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { AdminModule } from './admin/admin.module';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     PagesModule,
     AdminModule,
     AppRoutingModule

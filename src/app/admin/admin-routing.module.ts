@@ -4,12 +4,15 @@ import { AdminComponent } from './admin.component';
 import { PublicacionesComponent } from './publicaciones/publicaciones.component';
 import { SitiosComponent } from './sitios/sitios.component';
 import { CargarCvComponent } from './cargar-cv/cargar-cv.component';
-
+import { AngularFireAuthGuard, redirectLoggedInTo, redirectUnauthorizedTo } from '@angular/fire/auth-guard';
+const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['login']);
 
 const routes: Routes = [
   {
     path: "admin",
     component: AdminComponent,
+    canActivate: [AngularFireAuthGuard],
+    data: { authGuardPipe : redirectUnauthorizedToLogin },
     children: [
       {
         path: "",

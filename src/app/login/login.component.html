@@ -12,13 +12,13 @@
                     <div class="col-12 col-sm-10 offset-sm-1">
                         <label for="">Usuario</label>
                         <div class="input-group mb-3">
-                            <input type="text" class="form-control">
+                            <input [(ngModel)]="user" name="user" type="text" class="form-control">
                         </div>
                     </div>
                     <div class="col-12 col-sm-10 offset-sm-1">
                         <label for="">Contraseña</label>
                         <div class="input-group mb-5">
-                            <input type="{{showPass?'text':'password'}}" class="form-control">
+                            <input [(ngModel)]="pass" name="password" type="{{showPass?'text':'password'}}" class="form-control">
                             <div class="input-group-append">
                                 <span style="width: 46px;" class="input-group-text">
                                     <i (click)="showPass=!showPass" class="fas fa-eye{{showPass?'-slash':''}} pass"></i>
@@ -27,7 +27,7 @@
                         </div>
                     </div>
                     <div class="col-12 col-sm-10 offset-sm-1">
-                        <button type="button" class="btn btn-primary btn btn-block btn-login mb-5">INGRESAR</button>
+                        <button (click)="login()" type="button" class="btn btn-primary btn btn-block btn-login mb-5">INGRESAR</button>
                     </div>
                 </div>
             </div>
