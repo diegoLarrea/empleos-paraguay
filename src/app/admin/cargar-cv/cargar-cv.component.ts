@@ -16,6 +16,8 @@ export class CargarCvComponent implements OnInit {
   loading = false;
 
   sitioAdd: Sitio = new Sitio();
+  sitioEdit: Sitio = new Sitio();
+
   ngOnInit(): void {
     this.getSitios();
   }
@@ -24,6 +26,7 @@ export class CargarCvComponent implements OnInit {
     this.loading = true;
     this.apiCVs.getCvs().subscribe(
       data => {
+        this.sitios = [];
         for(let i=0; i<data.length;i++){
           let e:Sitio = <Sitio> data[i].payload.doc.data();
           e.id = data[i].payload.doc.id;
@@ -39,19 +42,41 @@ export class CargarCvComponent implements OnInit {
       this.apiCVs.postCvs(this.sitioAdd)
       .then(
         res =>{
-          console.log(res);
-          this.toastr.success("Sitio agregado");
+          this.sitioAdd = new Sitio();
           setTimeout(()=>{
             $("#agregarSitioModal").modal("hide");
           },0)
         },
         err =>{
           console.log(err);
-          this.toastr.error("Error al guardar sitio");
         }
       )
-    }else{
-      this.toastr.error("Complete los campos");
     }
+  }
+
+  putSitio(){
+    if(this.sitioEdit.nombre != null && this.sitioEdit.url != null){
+      this.apiCVs.updateCV(this.sitioEdit)
+      .then(
+        res =>{
+          this.sitioEdit = new Sitio();
+          setTimeout(()=>{
+            $("#editarSitioModal").modal("hide");
+          },0)
+        },
+        err =>{
+          console.log(err);
+        }
+      )
+    }
+  }
+
+  removeCV(id){
+    this.apiCVs.removeCV(id).then(
+      res => {},
+      err => {
+        console.log(err);
+      }
+    )
   }
 }

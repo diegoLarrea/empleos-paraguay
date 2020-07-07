@@ -21,5 +21,13 @@ export class CvsService {
   postCvs(el: Sitio) {
     return this.firestore.collection('cvs').add({nombre:el.nombre, url:el.url});
   }
+
+  removeCV(id) {
+    return this.firestore.doc(`cvs/${id}`).delete();
+  }
+
+  updateCV(el: Sitio){
+    return this.firestore.doc('cvs/' + el.id).update(el);
+  }
 }
 
