@@ -21,15 +21,18 @@ const routes: Routes = [
       },
       {
         path: "publicaciones",
-        component: PublicacionesComponent
+        component: PublicacionesComponent,
+        data: { index : 0 }
       },
       {
         path: "sitios",
-        component: SitiosComponent
+        component: SitiosComponent,
+        data: { index : 1 }
       },
       {
         path: "cargar-cv",
-        component: CargarCvComponent
+        component: CargarCvComponent,
+        data: { index : 2 }
       }
     ]
   }

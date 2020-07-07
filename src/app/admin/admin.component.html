@@ -1,17 +1,8 @@
 <app-nav></app-nav>
 <div class="container-fluid">
-    <div class="row h">
-        <div class="col-12 col-lg-2 bg-primary h p-0">
-            <ul class="list-group list-group-flush" id="sidebar">
-                <a (click)="setActive(j)" *ngFor="let i of items; index as j;" routerLink="{{i.path}}" class="list-group-item bg-primary"><i class="{{i.icon}} mr-2"></i>{{i.nombre}}</a>
-            </ul>
-        </div>
-        <div class="col-12 col-lg-10">
-            <div class="row">
-                <div class="col-12">
-                    <router-outlet></router-outlet>
-                </div>
-            </div>
+    <div class="row">
+        <div class="col-12">
+            <router-outlet></router-outlet>
         </div>
     </div>
 </div>

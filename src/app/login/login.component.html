@@ -21,13 +21,18 @@
                             <input [(ngModel)]="pass" name="password" type="{{showPass?'text':'password'}}" class="form-control">
                             <div class="input-group-append">
                                 <span style="width: 46px;" class="input-group-text">
-                                    <i (click)="showPass=!showPass" class="fas fa-eye{{showPass?'-slash':''}} pass"></i>
+                                    <i style="cursor: pointer;" (click)="showPass=!showPass" class="fas fa-eye{{showPass?'-slash':''}} pass"></i>
                                 </span>
                             </div>
                         </div>
                     </div>
+                    <div class="col-12 text-center" *ngIf="err != null">
+                        <p class="text-danger">{{err}}</p>
+                    </div>
                     <div class="col-12 col-sm-10 offset-sm-1">
-                        <button (click)="login()" type="button" class="btn btn-primary btn btn-block btn-login mb-5">INGRESAR</button>
+                        <button [class.disabled-btn]="loading" (click)="login()" type="button" class="btn btn-primary btn btn-block btn-login mb-5">
+                            <i *ngIf="loading" class="fa fa-spinner fa-spin text-white mr-2"></i>INGRESAR
+                        </button>
                     </div>
                 </div>
             </div>
