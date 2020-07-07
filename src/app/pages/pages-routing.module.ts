@@ -11,41 +11,41 @@ const routes: Routes = [
   {
     path: "",
     component: PagesComponent,
-    children: [
-      {
-        path: "",
-        redirectTo: "empleos",
-        pathMatch: "full"
-      },
-      {
-        path: "empleos",
-        component: HomeComponent,
-        data: {
-          index: 0
-        }
-      },
-      {
-        path: "empleos/:id",
-        component: VerEmpleoComponent,
-        data: {
-          index: 0
-        }
-      },
-      {
-        path: "sitios",
-        component: SitiosComponent,
-        data: {
-          index: 1
-        }
-      },
-      {
-        path: "cargar-cv",
-        component: CargarCvComponent,
-        data: {
-          index: 2
-        }
-      }
-    ]
+    // children: [
+    //   {
+    //     path: "",
+    //     redirectTo: "empleos",
+    //     pathMatch: "full"
+    //   },
+    //   {
+    //     path: "empleos",
+    //     component: HomeComponent,
+    //     data: {
+    //       index: 0
+    //     }
+    //   },
+    //   {
+    //     path: "empleos/:id",
+    //     component: VerEmpleoComponent,
+    //     data: {
+    //       index: 0
+    //     }
+    //   },
+    //   {
+    //     path: "sitios",
+    //     component: SitiosComponent,
+    //     data: {
+    //       index: 1
+    //     }
+    //   },
+    //   {
+    //     path: "cargar-cv",
+    //     component: CargarCvComponent,
+    //     data: {
+    //       index: 2
+    //     }
+    //   }
+    // ]
   }
 ];
 
