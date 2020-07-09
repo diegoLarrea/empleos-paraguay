@@ -4,6 +4,6 @@ export class Empleo {
     descripcion: string = null;
     fecha: string = null;
     imagen: string = null;
-    requisitos: string = null;
+    ubicacion: string = null;
     titulo: string = null;
 }

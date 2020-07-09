@@ -1,15 +1,14 @@
-.cover {
-  object-fit: cover;
-  width: 100%;
-  height: 200px;
+.fecha {
+  margin-bottom: 0.5rem;
+  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-weight: bolder;
+  font-size: 12px;
 }
 
-.breadcrumb > li + li:before {
-    color: #78C2AD;
-    content: "/ ";
-    padding: 0 5px;
-}
-
-.h {
-  height: calc(100vh - 59px);
+.btn {
+  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
