@@ -30,12 +30,14 @@
             "styles": [
               "src/styles.scss",
               "src/assets/fontawesome-free/css/all.min.css",
-              "node_modules/animate.css/animate.min.css"
+              "node_modules/animate.css/animate.min.css",
+              "src/assets/summernote/summernote-lite.css"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
               "node_modules/@popperjs/core/dist/umd/popper.min.js",
-              "node_modules/bootstrap/dist/js/bootstrap.min.js"
+              "node_modules/bootstrap/dist/js/bootstrap.min.js",
+              "src/assets/summernote/summernote-lite.js"
             ]
           },
           "configurations": {
