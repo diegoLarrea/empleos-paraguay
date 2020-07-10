@@ -1,0 +1,50 @@
+[
+    {
+        "nombre": "Contabilidad y finanzas"
+    },
+    {
+        "nombre": "Área administrativa"
+    },
+    {
+        "nombre": "Arte y diseño"
+    },
+    {
+        "nombre": "Ciencia e ingeniería"
+    },
+    {
+        "nombre": "Administración"
+    },
+    {
+        "nombre": "Educación"
+    },
+    {
+        "nombre": "Gastronomía y hotelería"
+    },
+    {
+        "nombre": "Informática y datos"
+    },
+    {
+        "nombre": "Legal"
+    },
+    {
+        "nombre": "Asistencia médica"
+    },
+    {
+        "nombre": "Comercial"
+    },
+    {
+        "nombre": "Instalaciones, mantenimieto y reparaciones"
+    },
+    {
+        "nombre": "Construcción"
+    },
+    {
+        "nombre": "Agricultura"
+    },
+    {
+        "nombre": "Limpieza y servicios"
+    },
+    {
+        "nombre": "Otros"
+    }
+]
