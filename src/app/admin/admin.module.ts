@@ -10,6 +10,7 @@ import { NavComponent } from './nav/nav.component';
 import { PublicacionesComponent } from './publicaciones/publicaciones.component';
 import { SitiosComponent } from './sitios/sitios.component';
 import { CargarCvComponent } from './cargar-cv/cargar-cv.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import { CargarCvComponent } from './cargar-cv/cargar-cv.component';
     CommonModule,
     FormsModule,
     NgxPaginationModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
     AdminRoutingModule

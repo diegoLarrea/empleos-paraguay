@@ -2,13 +2,15 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Empleo } from '../_models/empleo';
 import { DatePipe } from '@angular/common';
+import {HttpClient} from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EmpleosService {
 
-  constructor(private firestore: AngularFirestore, private dp:DatePipe) {}
+  constructor(private firestore: AngularFirestore, private dp:DatePipe, private http: HttpClient) {}
 
   getEmpleos() {
     return this.firestore.collection(
@@ -27,7 +29,7 @@ export class EmpleosService {
       titulo: el.titulo,
       descripcion: el.descripcion,
       fecha: this.dp.transform(new Date(), 'dd/MM/yyyy'),
-      contacto: el.contacto,
+      area: el.area,
       ubicacion: el.ubicacion,
       imagen: el.imagen
     });
@@ -42,9 +44,13 @@ export class EmpleosService {
       titulo: el.titulo,
       descripcion: el.descripcion,
       fecha: this.dp.transform(new Date(), 'dd/MM/yyyy'),
-      contacto: el.contacto,
+      area: el.area,
       ubicacion: el.ubicacion,
       imagen: el.imagen
     });
+  }
+
+  getAreas():Observable<any>{
+    return this.http.get('assets/json/areas.json');
   }
 }

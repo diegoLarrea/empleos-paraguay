@@ -12,3 +12,7 @@
     Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji",
     "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
+
+.my-pagination::ng-deep .ngx-pagination .current {
+  background-color: rgb(52, 58, 64) !important;
+}

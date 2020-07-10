@@ -1,6 +1,6 @@
 export class Empleo {
     id: string = null;
-    contacto: string = null;
+    area: string = null;
     descripcion: string = null;
     fecha: string = null;
     imagen: string = null;

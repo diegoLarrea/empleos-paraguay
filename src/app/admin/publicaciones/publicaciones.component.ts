@@ -19,6 +19,7 @@ export class PublicacionesComponent implements OnInit {
   isPost = true;
   ngOnInit(): void {
     this.getEmpleos();
+    this.getAreas();
     $('#summernote').summernote({
       tabsize: 2,
       height: 120,
@@ -55,11 +56,12 @@ export class PublicacionesComponent implements OnInit {
   }
 
   loadingPublicacion = false;
+  showError = false;
   guardarPublicacion(){
     this.empleo.descripcion = $('#summernote').summernote('code');
     if(this.empleo.titulo != null &&
       this.empleo.descripcion != null &&
-      this.empleo.contacto != null &&
+      this.empleo.area != null &&
       this.empleo.ubicacion != null &&
       this.empleo.imagen != null){
         this.loadingPublicacion = true;
@@ -88,9 +90,17 @@ export class PublicacionesComponent implements OnInit {
           )
         }
         
-      }
+    }else{
+      this.error();
+    }
   }
 
+  error(){
+    this.showError = true;
+    setTimeout(()=>{
+      this.showError = false;
+    }, 2000);
+  }
   async imageHandler(files: FileList) {
     if (files != null && this.isFileImage(files.item(0)) ) {
       let file = files.item(0);
@@ -136,5 +146,41 @@ export class PublicacionesComponent implements OnInit {
       top: 0,
       behavior: 'smooth',
     });
+  }
+
+  openInNew(target:string){
+    console.log(`${window.location.hostname}${target}`)
+    // window.open(`${window.location.href}${target}`, '_blank');
+  }
+
+  targetEliminar: Empleo = new Empleo();
+  eliminarModal(target:Empleo){
+    this.targetEliminar = target;
+  }
+
+  loadingEliminar = false;
+  deletePublicacion(){
+    this.loadingEliminar = true;
+    this.apiPublicacion.removeEmpleo(this.targetEliminar.id).then(
+      res => {
+        this.loadingEliminar = false;
+        setTimeout(()=>{
+          $("#eliminarModal").modal("hide");
+        },0);
+      },
+      err => {
+        console.log(err);
+        this.loadingEliminar = false;
+      }
+    )
+  }
+
+  areas = [];
+  getAreas(){
+    this.apiPublicacion.getAreas().subscribe(
+      data => {
+        this.areas = data;
+      }
+    )
   }
 }

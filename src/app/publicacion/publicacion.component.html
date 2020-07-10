@@ -1,1 +1,32 @@
-<p>publicacion works!</p>
+<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark shadow-sm">
+    <a class="navbar-brand animate__animated animate__backInLeft" routerLink="/">
+        Empleos Paraguay
+    </a>
+</nav>
+<div class="container">
+    <div class="row">
+        <div class="col-12 mt-3" *ngIf="loading">
+            <div class="text-center">
+                <i class="fa fa-spinner fa-spin fa-3x text-primary"></i>
+                <h4>Cargando...</h4>
+            </div>
+        </div>
+        <div class="col-12 col-lg-8 offset-lg-2" *ngIf="!loading">
+            <div class="row">
+                <div class="col-12">
+                    <h4 class="mt-3 mb-0 d-sm-none">{{publicacion.titulo}}</h4>
+                    <h2 class="mt-3 mb-0 d-none d-sm-block">{{publicacion.titulo}}</h2>
+                    <p *ngIf="publicacion.fecha" class="text-secondary mb-0">Publicado el {{publicacion.fecha}}<i class="fas fa-map-marker ml-3 mr-1"></i> {{publicacion.ubicacion}}</p>
+                    <p *ngIf="publicacion.area" class="text-secondary"><i class="fas fa-cog mr-1"></i>Área: {{publicacion.area}}</p>
+                </div>
+                <div class="col-12 text-center">
+                    <img class="shadow mb-4" src="{{publicacion.imagen}}" alt="" style="width: 90%;height: auto;">
+                </div>
+                <div class="col-12">
+                    <div [innerHTML]="publicacion.descripcion"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

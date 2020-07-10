@@ -14,6 +14,8 @@ export class HomeComponent implements OnInit {
 
   empleos: Empleo[] = [];
   loading = false;
+  p: number = 1;
+  itemspp = 5;
   ngOnInit(): void {
     this.getEmpleos();
   }
@@ -30,5 +32,11 @@ export class HomeComponent implements OnInit {
         this.loading = false;
       }
     )
+  }
+
+  pageChange(e){
+    let top = document.getElementById("empleos");
+    this.p = e;
+    top.scrollIntoView({behavior:'smooth'});
   }
 }

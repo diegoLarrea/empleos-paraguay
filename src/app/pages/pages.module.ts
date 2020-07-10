@@ -7,7 +7,7 @@ import { HomeComponent } from './home/home.component';
 import { NavComponent } from './nav/nav.component';
 import { SitiosComponent } from './sitios/sitios.component';
 import { CargarCvComponent } from './cargar-cv/cargar-cv.component';
-
+import {NgxPaginationModule} from 'ngx-pagination';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { environment } from '../../environments/environment';
@@ -23,6 +23,7 @@ import { environment } from '../../environments/environment';
   ],
   imports: [
     CommonModule,
+    NgxPaginationModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule,
     PagesRoutingModule

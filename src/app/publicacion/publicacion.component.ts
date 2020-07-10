@@ -11,6 +11,7 @@ import { Empleo } from '../_models/empleo';
 export class PublicacionComponent implements OnInit {
 
   idPublicacion = null;
+  loading = true;
   constructor(private route: ActivatedRoute, private apiPublicacion: EmpleosService) {
     this.route.params.subscribe(params => {
       this.idPublicacion = params['id'];
@@ -25,9 +26,9 @@ export class PublicacionComponent implements OnInit {
         if(doc.exists){
           this.publicacion = <Empleo> doc.data();
         }
+        this.loading = false;
       }
     );
-    console.log(this.publicacion);
   }
 
 }
