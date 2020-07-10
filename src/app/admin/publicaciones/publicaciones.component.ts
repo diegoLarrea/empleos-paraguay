@@ -20,6 +20,7 @@ export class PublicacionesComponent implements OnInit {
   ngOnInit(): void {
     this.getEmpleos();
     this.getAreas();
+    this.getCiudades();
     $('#summernote').summernote({
       tabsize: 2,
       height: 120,
@@ -58,6 +59,7 @@ export class PublicacionesComponent implements OnInit {
   loadingPublicacion = false;
   showError = false;
   guardarPublicacion(){
+    console.log(this.empleo);
     this.empleo.descripcion = $('#summernote').summernote('code');
     if(this.empleo.titulo != null &&
       this.empleo.descripcion != null &&
@@ -71,6 +73,7 @@ export class PublicacionesComponent implements OnInit {
             res => {
               this.empleo = new Empleo();
               setTimeout(()=>{
+                $("#imagen-chooser").val(null);
                 $('#summernote').summernote('reset');
               },0)
               this.loadingPublicacion = false;
@@ -83,6 +86,7 @@ export class PublicacionesComponent implements OnInit {
               this.empleo = new Empleo();
               this.isPost = true;
               setTimeout(()=>{
+                $("#imagen-chooser").val(null);
                 $('#summernote').summernote('reset');
               },0)
               this.loadingPublicacion = false;
@@ -148,11 +152,6 @@ export class PublicacionesComponent implements OnInit {
     });
   }
 
-  openInNew(target:string){
-    console.log(`${window.location.hostname}${target}`)
-    // window.open(`${window.location.href}${target}`, '_blank');
-  }
-
   targetEliminar: Empleo = new Empleo();
   eliminarModal(target:Empleo){
     this.targetEliminar = target;
@@ -180,6 +179,15 @@ export class PublicacionesComponent implements OnInit {
     this.apiPublicacion.getAreas().subscribe(
       data => {
         this.areas = data;
+      }
+    )
+  }
+
+  ciudades = [];
+  getCiudades(){
+    this.apiPublicacion.getCiudades().subscribe(
+      data => {
+        this.ciudades = data;
       }
     )
   }

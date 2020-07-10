@@ -53,4 +53,8 @@ export class EmpleosService {
   getAreas():Observable<any>{
     return this.http.get('assets/json/areas.json');
   }
+
+  getCiudades():Observable<any>{
+    return this.http.get('assets/json/ciudades.json');
+  }
 }

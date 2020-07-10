@@ -15,18 +15,17 @@
             <div id="summernote"></div>
         </div>
         <div class="col-12 col-md-6">
-            <label for="">Área <span>*</span></label>
+            <label for="">Área/s <span>*</span></label>
             <div class="input-group mb-3">
-                <select [(ngModel)]="empleo.area" name="area" class="custom-select">
-                    <option *ngFor="let i of areas" value="{{i.nombre}}">{{i.nombre}}</option>
-                </select>
+                <ng-select style="width: 100%;" [multiple]="true" [searchable]="true" [items]="areas" bindLabel="nombre" bindValue="nombre" [(ngModel)]="empleo.area">
+                </ng-select>
             </div>
         </div>
         <div class="col-12 col-md-6">
-            <label for="">Ubicación <span>*</span></label>
+            <label for="">Ciudad/es <span>*</span></label>
             <div class="input-group mb-3">
-                <input [(ngModel)]="empleo.ubicacion" name="ubicacion" type="text" class="form-control"
-                    placeholder="Escriba ciudad...">
+                <ng-select style="width: 100%;" [multiple]="true" [searchable]="true" [items]="ciudades" bindLabel="Municipio" bindValue="Municipio" [(ngModel)]="empleo.ubicacion">
+                </ng-select>
             </div>
         </div>
         <div class="col-12">

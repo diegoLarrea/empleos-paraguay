@@ -5,3 +5,9 @@
     letter-spacing: 0.0625em;
     text-transform: uppercase;
 }
+
+.image {
+    width: 90%;
+    max-height: 500px;
+    object-fit: cover;
+}

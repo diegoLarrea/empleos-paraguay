@@ -9,8 +9,10 @@ import { SitiosComponent } from './sitios/sitios.component';
 import { CargarCvComponent } from './cargar-cv/cargar-cv.component';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { AngularFireModule } from '@angular/fire';
+import { NgSelectModule } from '@ng-select/ng-select';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { environment } from '../../environments/environment';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -24,6 +26,8 @@ import { environment } from '../../environments/environment';
   imports: [
     CommonModule,
     NgxPaginationModule,
+    NgSelectModule,
+    FormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule,
     PagesRoutingModule

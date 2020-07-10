@@ -16,8 +16,14 @@ export class HomeComponent implements OnInit {
   loading = false;
   p: number = 1;
   itemspp = 5;
+  filters = {
+    area: null,
+    ubicacion: null
+  }
   ngOnInit(): void {
     this.getEmpleos();
+    this.getAreas();
+    this.getCiudades();
   }
 
   getEmpleos(){
@@ -38,5 +44,23 @@ export class HomeComponent implements OnInit {
     let top = document.getElementById("empleos");
     this.p = e;
     top.scrollIntoView({behavior:'smooth'});
+  }
+
+  areas = [];
+  getAreas(){
+    this.apiEmpleo.getAreas().subscribe(
+      data => {
+        this.areas = data;
+      }
+    )
+  }
+
+  ciudades = [];
+  getCiudades(){
+    this.apiEmpleo.getCiudades().subscribe(
+      data => {
+        this.ciudades = data;
+      }
+    )
   }
 }
