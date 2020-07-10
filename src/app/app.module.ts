@@ -7,6 +7,7 @@ import { LoginComponent } from './login/login.component';
 import { PagesModule } from './pages/pages.module';
 import { AdminModule } from './admin/admin.module';
 import { FormsModule } from '@angular/forms';
+import { PublicacionModule } from './publicacion/publicacion.module';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { FormsModule } from '@angular/forms';
     FormsModule,
     PagesModule,
     AdminModule,
+    PublicacionModule,
     AppRoutingModule
   ],
   providers: [],

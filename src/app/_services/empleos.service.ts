@@ -18,8 +18,8 @@ export class EmpleosService {
     ).snapshotChanges();
   }
 
-  getEmpleoById(id){
-    return this.firestore.doc(`empleos/${id}`).get();
+  async getEmpleoById(id){
+    return await this.firestore.collection('empleos').doc(id).ref.get();
   }
 
   postEmpleo(el: Empleo) {

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EmpleosService } from 'src/app/_services/empleos.service';
 import { Empleo } from 'src/app/_models/empleo';
-import { BlockUIService } from 'ng-block-ui';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -10,7 +10,7 @@ import { BlockUIService } from 'ng-block-ui';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private apiEmpleo: EmpleosService, private bui:BlockUIService) { }
+  constructor(private apiEmpleo: EmpleosService, private router: Router) { }
 
   empleos: Empleo[] = [];
   loading = false;
