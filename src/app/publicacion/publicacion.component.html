@@ -16,7 +16,8 @@
                 <div class="col-12">
                     <h4 class="mt-3 mb-0 d-sm-none">{{publicacion.titulo}}</h4>
                     <h2 class="mt-3 mb-0 d-none d-sm-block">{{publicacion.titulo}}</h2>
-                    <p *ngIf="publicacion.fecha" class="text-secondary mb-0">Publicado el {{publicacion.fecha}}<i class="fas fa-map-marker ml-3 mr-1"></i> {{publicacion.ubicacion}}</p>
+                    <p *ngIf="publicacion.fecha" class="text-secondary mb-0">Publicado el {{publicacion.fecha}}</p>
+                    <p *ngIf="publicacion.ubicacion" class="text-secondary mb-0"><i class="fas fa-map-marker mr-1"></i> {{publicacion.ubicacion}}</p>
                     <p *ngIf="publicacion.area" class="text-secondary"><i class="fas fa-cog mr-1"></i>Área: {{publicacion.area}}</p>
                 </div>
                 <div class="col-12 text-center">

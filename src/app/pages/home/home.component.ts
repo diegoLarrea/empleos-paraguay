@@ -17,8 +17,8 @@ export class HomeComponent implements OnInit {
   p: number = 1;
   itemspp = 5;
   filters = {
-    area: null,
-    ubicacion: null
+    area: [],
+    ubicacion: []
   }
   ngOnInit(): void {
     this.getEmpleos();
@@ -26,12 +26,13 @@ export class HomeComponent implements OnInit {
     this.getCiudades();
   }
 
-  getEmpleos(){
+  getEmpleos() {
     this.loading = true;
     this.apiEmpleo.getEmpleos().subscribe(
       data => {
-        for(let i=0; i<data.length;i++){
-          let e:Empleo = <Empleo> data[i].payload.doc.data();
+        this.empleos = [];
+        for (let i = 0; i < data.length; i++) {
+          let e: Empleo = <Empleo>data[i].payload.doc.data();
           e.id = data[i].payload.doc.id;
           this.empleos.push(e);
         }
@@ -40,14 +41,14 @@ export class HomeComponent implements OnInit {
     )
   }
 
-  pageChange(e){
+  pageChange(e) {
     let top = document.getElementById("empleos");
     this.p = e;
-    top.scrollIntoView({behavior:'smooth'});
+    top.scrollIntoView({ behavior: 'smooth' });
   }
 
   areas = [];
-  getAreas(){
+  getAreas() {
     this.apiEmpleo.getAreas().subscribe(
       data => {
         this.areas = data;
@@ -56,11 +57,62 @@ export class HomeComponent implements OnInit {
   }
 
   ciudades = [];
-  getCiudades(){
+  getCiudades() {
     this.apiEmpleo.getCiudades().subscribe(
       data => {
         this.ciudades = data;
       }
     )
+  }
+
+  loadingFilter = false;
+
+  filter(items: Empleo[]) {
+    this.loadingFilter = true;
+    let searchText: string = "";
+    for(let i=0;i<this.filters.area.length;i++){
+      searchText += this.filters.area[i];
+    }
+    for(let i=0;i<this.filters.ubicacion.length;i++){
+      searchText += this.filters.ubicacion[i];
+    }
+    if(searchText != ""){
+      if (!items) return [];
+
+      if (searchText == null) return items;
+  
+      let ret: Empleo[] = [];
+      for (let i = 0; i < items.length; i++) {
+        let it = items[i];
+        let contains = false;
+        for (let j = 0; j < it.area.length; j++) {
+          let area = it.area[j];
+          if (searchText.includes(area)) {
+            contains = true;
+            break;
+          }
+        }
+        if (contains) {
+          ret.push(it);
+        } else {
+          for (let j = 0; j < it.ubicacion.length; j++) {
+            let ubicacion = it.ubicacion[j];
+            if (searchText.includes(ubicacion)) {
+              contains = true;
+              break;
+            }
+          }
+          if (contains) { ret.push(it); }
+        }
+      }
+      return ret;
+    }
+    this.loadingFilter = false;
+  }
+
+  limpiarFiltros(){
+    this.filters.area = [];
+    this.filters.ubicacion= [];
+    this.getEmpleos();
   }
 }

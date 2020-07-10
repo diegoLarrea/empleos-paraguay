@@ -15,8 +15,8 @@ export class EmpleosService {
   getEmpleos() {
     return this.firestore.collection(
       'empleos',
-      ref => ref
-        .orderBy('fecha', 'desc')
+      ref => 
+      ref.orderBy('fecha', 'desc')
     ).snapshotChanges();
   }
 

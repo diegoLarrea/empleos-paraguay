@@ -1,13 +1,7 @@
 <div class="container">
     <div class="row">
-        <div class="col-12" *ngIf="loading">
-            <div class="text-center">
-                <i class="fa fa-spinner fa-spin fa-3x text-primary"></i>
-                <h4>Cargando...</h4>
-            </div>
-        </div>
-        <div class="col-12" *ngIf="!loading">
-            <div class="card shadow-sm animate__animated animate__fadeIn">
+        <div class="col-12">
+            <div class="card shadow-sm">
                 <div class="card-body" style="padding: 15px 10px;">
                     <div class="row">
                         <div class="col-12">
@@ -33,13 +27,19 @@
                                     </div>
                                 </div>
                                 <div class="col-12 text-center text-lg-right">
-                                    <button class="btn btn-secondary btn-sm text-white font-weight-bolder mr-2 my-1">LIMPIAR FILTROS</button>
-                                    <button class="btn btn-primary btn-sm text-dark font-weight-bolder my-1">BUSCAR</button>
+                                    <button (click)="limpiarFiltros()" class="btn btn-secondary btn-sm text-white font-weight-bolder mr-2 my-1">LIMPIAR FILTROS</button>
+                                    <button (click)="empleos=filter(empleos)" class="btn btn-primary btn-sm text-dark font-weight-bolder my-1">BUSCAR</button>
                                 </div>
                             </div>
                             <hr class="bg-primary"/>
                         </div>
-                        <div class="col-12">
+                        <div class="col-12" *ngIf="loading">
+                            <div class="text-center">
+                                <i class="fa fa-spinner fa-spin fa-3x text-primary"></i>
+                                <h4>Cargando...</h4>
+                            </div>
+                        </div>
+                        <div class="col-12 animate__animated animate__fadeIn" *ngIf="!loading">
                             <h6 class="text-secondary">RESULTADOS ({{empleos.length}})</h6>
                             <div class="list-group list-group-flush">
                                 <li *ngFor="let i of empleos | paginate: { id: 'server', itemsPerPage: itemspp, currentPage: p}"
@@ -61,7 +61,7 @@
                             </div>
                             <hr class="bg-primary"/>
                         </div>
-                        <div class="col-12 text-center">
+                        <div class="col-12 text-center" *ngIf="!loading">
                             <pagination-controls class="my-pagination text-center" id="server"
                                 (pageChange)="pageChange($event)" maxSize="10" previousLabel="" nextLabel="">
                             </pagination-controls>
