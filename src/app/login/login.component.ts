@@ -27,12 +27,16 @@ export class LoginComponent implements OnInit {
     try{
       let user = await this.auth.login(this.user, this.pass);
       if(user){
-        this.router.navigate(["/admin"]);
+        this.router.navigate(["/admin/publicaciones"]);
       }
       this.loading = false;
     }catch(error){
       this.loading = false;
       this.err = "Usuario y/o contraseña incorrecta";
     }
+  }
+
+  setPass(){
+    this.showPass = !this.showPass;
   }
 }

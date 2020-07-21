@@ -15,21 +15,21 @@
             <div id="summernote"></div>
         </div>
         <div class="col-12 col-md-6">
-            <label for="">Área/s <span>*</span></label>
+            <label for="">Área/s </label>
             <div class="input-group mb-3">
-                <ng-select style="width: 100%;" [multiple]="true" [searchable]="true" [items]="areas" bindLabel="nombre" bindValue="nombre" [(ngModel)]="empleo.area">
+                <ng-select style="width: 100%;" [virtualScroll]="true" [multiple]="true" [items]="areas" bindLabel="nombre" bindValue="nombre" [(ngModel)]="empleo.area">
                 </ng-select>
             </div>
         </div>
         <div class="col-12 col-md-6">
-            <label for="">Ciudad/es <span>*</span></label>
+            <label for="">Ciudad/es</label>
             <div class="input-group mb-3">
-                <ng-select style="width: 100%;" [multiple]="true" [searchable]="true" [items]="ciudades" bindLabel="Municipio" bindValue="Municipio" [(ngModel)]="empleo.ubicacion">
+                <ng-select style="width: 100%;" [virtualScroll]="true" [multiple]="true" [items]="ciudades" bindLabel="Municipio" bindValue="Municipio" [(ngModel)]="empleo.ubicacion">
                 </ng-select>
             </div>
         </div>
         <div class="col-12">
-            <label for="">Imagen <span>*</span></label>
+            <label for="">Imagen</label>
             <button type="button" data-toggle="modal" data-target="#modalImagen" *ngIf="empleo.imagen != null"
                 class="btn btn-sm btn-primary text-dark btn-custom mx-2"><i class="fas fa-image mr-2"></i> VER
                 IMAGEN</button>

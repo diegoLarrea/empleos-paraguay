@@ -21,7 +21,7 @@
                             <input [(ngModel)]="pass" name="password" type="{{showPass?'text':'password'}}" class="form-control">
                             <div class="input-group-append">
                                 <span style="width: 46px;" class="input-group-text">
-                                    <i style="cursor: pointer;" (click)="showPass=!showPass" class="fas fa-eye{{showPass?'-slash':''}} pass"></i>
+                                    <i style="cursor: pointer;" (click)="setPass()" class="fas fa-eye{{showPass?'-slash':''}} pass"></i>
                                 </span>
                             </div>
                         </div>

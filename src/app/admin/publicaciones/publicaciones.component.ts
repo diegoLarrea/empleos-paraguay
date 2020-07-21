@@ -59,13 +59,9 @@ export class PublicacionesComponent implements OnInit {
   loadingPublicacion = false;
   showError = false;
   guardarPublicacion(){
-    console.log(this.empleo);
     this.empleo.descripcion = $('#summernote').summernote('code');
     if(this.empleo.titulo != null &&
-      this.empleo.descripcion != null &&
-      this.empleo.area != null &&
-      this.empleo.ubicacion != null &&
-      this.empleo.imagen != null){
+      this.empleo.descripcion != null){
         this.loadingPublicacion = true;
         if(this.isPost){
           this.apiPublicacion.postEmpleo(this.empleo)
