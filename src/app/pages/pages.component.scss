@@ -1,0 +1,32 @@
+.last-p {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.last-p-img img{
+    width: 120px;
+    height: 100px;
+    border-radius: 6px;
+}
+
+.last-p-des {
+    padding-left: 18px;
+}
+
+.owl-carousel .card {
+    cursor: pointer;
+}
+
+.owl-carousel .card:hover {
+    opacity: 0.75;
+}
+
+.carousel-item:hover {
+    opacity: 0.75;
+    cursor: pointer;
+}
+
+.hr-custom {
+    background-color: 1px solid #eee;
+}
